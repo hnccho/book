@@ -120,6 +120,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     kiwoom = Kiwoom()
     kiwoom.comm_connect()
+
     kiwoom.ohlcv = {'date': [], 'open': [], 'high': [], 'low': [], 'close': [], 'volume': []}
 
     # opt10081 TR 요청
@@ -137,6 +138,6 @@ if __name__ == "__main__":
 
     df = pd.DataFrame(kiwoom.ohlcv, columns=['open', 'high', 'low', 'close', 'volume'], index=kiwoom.ohlcv['date'])
 
-    con = sqlite3.connect("c:/Users/Jason/stock.db")
+    con = sqlite3.connect("D:/PycharmProjects/book/stock.db")
     df.to_sql('039490', con, if_exists='replace')
 

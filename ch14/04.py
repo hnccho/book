@@ -42,11 +42,12 @@ def handle_data(context, data):
 algo = TradingAlgorithm(initialize=initialize, handle_data=handle_data)
 result = algo.run(data)
 
-plt.plot(result.index, result.ma5)
-plt.plot(result.index, result.ma20)
-plt.legend(loc='best')
+plt.plot(result.index, result.portfolio_value)
+#plt.plot(result.index, result.ma5)
+#plt.plot(result.index, result.ma20)
+#plt.legend(loc='best')
 
-plt.plot(result.ix[result.buy == True].index, result.ma5[result.buy == True], '^')
-plt.plot(result.ix[result.sell == True].index, result.ma5[result.sell == True], 'v')
+#plt.plot(result.ix[result.buy == True].index, result.ma5[result.buy == True], '^')
+#plt.plot(result.ix[result.sell == True].index, result.ma5[result.sell == True], 'v')
 
 plt.show()

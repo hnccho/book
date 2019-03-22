@@ -66,6 +66,8 @@ class PyMon:
 
         for i, code in enumerate(self.kosdaq_codes):
             print(i, '/', num)
+            if i > 100:
+                break
             if self.check_speedy_rising_volume(code):
                 buy_list.append(code)
 

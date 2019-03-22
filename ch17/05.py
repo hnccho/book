@@ -8,7 +8,6 @@ import sqlite3
 
 TR_REQ_TIME_INTERVAL = 0.2
 
-
 class Kiwoom(QAxWidget):
     def __init__(self):
         super().__init__()
@@ -113,6 +112,7 @@ if __name__ == "__main__":
         kiwoom.comm_rq_data("opt10081_req", "opt10081", 2, "0101")
 
     df = pd.DataFrame(kiwoom.ohlcv, columns=['open', 'high', 'low', 'close', 'volume'], index=kiwoom.ohlcv['date'])
+#    print(df)
 
-    con = sqlite3.connect("c:/Users/Jason/stock.db")
+    con = sqlite3.connect("stock.db")
     df.to_sql('039490', con, if_exists='replace')
